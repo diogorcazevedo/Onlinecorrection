@@ -21,10 +21,49 @@ $factory->define(Onlinecorrection\Models\User::class, function (Faker\Generator 
 });
 
 
-$factory->define(\Onlinecorrection\Models\Project::class, function (Faker\Generator $faker) {
+$factory->define(Onlinecorrection\Models\Client::class, function (Faker\Generator $faker) {
     return [
-        'projectname' => $faker->word,
+        'phone' => $faker->phoneNumber,
+        'address' => $faker->address,
+        'city' => $faker->city,
+        'state'=>$faker->state,
+        'zipcode'=>$faker->postcode
+
+    ];
+});
+
+
+$factory->define(Onlinecorrection\Models\Project::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->word,
         'description' => $faker->sentence,
         'qtd' => $faker->randomDigitNotNull
+    ];
+});
+
+
+$factory->define(Onlinecorrection\Models\Document::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->word,
+        'project_id' => 1,
+        'status' => $faker->word,
+    ];
+});
+
+
+$factory->define(Onlinecorrection\Models\Order::class, function (Faker\Generator $faker) {
+    return [
+        'client_id' => rand(1,10),
+        'total' => rand(50,100),
+        'status' => 0
+
+    ];
+});
+
+
+
+$factory->define(Onlinecorrection\Models\OrderItem::class, function (Faker\Generator $faker) {
+    return [
+
     ];
 });

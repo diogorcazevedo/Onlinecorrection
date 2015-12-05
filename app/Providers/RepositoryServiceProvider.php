@@ -24,14 +24,37 @@ class RepositoryServiceProvider extends ServiceProvider
     public function register()
     {
 
+
+
+        $this->app->bind(
+            'Onlinecorrection\Repositories\UserRepository',
+            'Onlinecorrection\Repositories\UserRepositoryEloquent'
+        );
+
+        $this->app->bind(
+            'Onlinecorrection\Repositories\ClientRepository',
+            'Onlinecorrection\Repositories\ClientRepositoryEloquent'
+        );
+
         $this->app->bind(
             'Onlinecorrection\Repositories\ProjectRepository',
             'Onlinecorrection\Repositories\ProjectRepositoryEloquent'
         );
 
         $this->app->bind(
-            'Onlinecorrection\Repositories\UserRepository',
-            'Onlinecorrection\Repositories\UserRepositoryEloquent'
+            'Onlinecorrection\Repositories\DocumentRepository',
+            'Onlinecorrection\Repositories\DocumentRepositoryEloquent'
         );
+
+        $this->app->bind(
+            'Onlinecorrection\Repositories\OrderRepository',
+            'Onlinecorrection\Repositories\OrderRepositoryEloquent'
+        );
+
+        $this->app->bind(
+            'Onlinecorrection\Repositories\OrderItemRepository',
+            'Onlinecorrection\Repositories\OrderItemRepositoryEloquent'
+        );
+
     }
 }
