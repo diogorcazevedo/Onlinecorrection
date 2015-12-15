@@ -10,6 +10,11 @@ class Project extends Model implements Transformable
 {
     use TransformableTrait;
 
-    protected $fillable = [];
+    protected $fillable = ['name', 'description','qtd'];
+
+    public function documents()
+    {
+        return $this->hasMany(Document::class);
+    }
 
 }

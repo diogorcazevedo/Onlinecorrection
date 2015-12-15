@@ -13,6 +13,12 @@ use Onlinecorrection\Models\Project;
  */
 class ProjectRepositoryEloquent extends BaseRepository implements ProjectRepository
 {
+
+    public function lists()
+    {
+        return $this->model->lists('name','id');
+    }
+
     /**
      * Specify Model class name
      *

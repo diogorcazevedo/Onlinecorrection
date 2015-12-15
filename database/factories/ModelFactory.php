@@ -42,11 +42,12 @@ $factory->define(Onlinecorrection\Models\Project::class, function (Faker\Generat
 });
 
 
+
 $factory->define(Onlinecorrection\Models\Document::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->word,
         'project_id' => 1,
-        'status' => $faker->word,
+        'status' => 0
     ];
 });
 
@@ -67,3 +68,4 @@ $factory->define(Onlinecorrection\Models\OrderItem::class, function (Faker\Gener
 
     ];
 });
+

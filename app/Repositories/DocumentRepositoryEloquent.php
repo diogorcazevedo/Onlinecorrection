@@ -13,6 +13,7 @@ use Onlinecorrection\Models\Document;
  */
 class DocumentRepositoryEloquent extends BaseRepository implements DocumentRepository
 {
+
     /**
      * Specify Model class name
      *

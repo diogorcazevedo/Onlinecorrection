@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Onlinecorrection\Models\User;
+use Onlinecorrection\Models\Client;
 
 class UserTableSeeder extends Seeder
 {
@@ -12,6 +13,15 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
+
+        factory(User::class)->create([
+            'name' => 'Coach',
+            'email' => 'coach@gmail.com',
+            'password' => bcrypt(123456),
+            'role' => 'coach',
+            'remember_token' => str_random(10),
+        ])->client()->save(factory(Client::class)->make());
+
 
         factory(User::class)->create([
             'name' => 'user',
@@ -29,10 +39,14 @@ class UserTableSeeder extends Seeder
         ])->client()->save(factory(Client::class)->make());
 
 
-        factory(User::class, 10)->create()->each(function ($u) {
+
+
+     /*   factory(User::class, 10)->create()->each(function ($u) {
 
             $u->client()->save(factory(Client::class)->make());
         });
+      *
+      */
 
     }
 }

@@ -16,8 +16,15 @@ class CreateOrdersTable extends Migration
             $table->increments('id');
             $table->integer('client_id')->unsigned();
             $table->foreign('client_id')->references('id')->on('users');
-            $table->decimal('total',8,2);
-            $table->smallInteger('status')->default(0);
+            $table->integer('document_id')->unsigned();
+            $table->foreign('document_id')->references('id')->on('documents');
+            $table->decimal('evaluation',4,2);
+            $table->decimal('tipo',4,2);
+            $table->decimal('tema',4,2);
+            $table->decimal('coesao',4,2);
+            $table->decimal('coerencia',4,2);
+            $table->decimal('gramatica',4,2);
+            $table->integer('zero');
             $table->timestamps();
         });
     }

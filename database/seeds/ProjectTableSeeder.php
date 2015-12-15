@@ -13,7 +13,7 @@ class ProjectTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Document::class,10)->create()->each(function($c){
+        factory(Project::class,3)->create()->each(function($c){
             for($i = 0; $i <=5; $i++){
                 $c->documents()->save(factory(Document::class)->make());
             }

@@ -16,7 +16,7 @@ class CreateProjectsTable extends Migration
             $table->increments('id');
             $table->string('name',255);
             $table->text('description');
-            $table->int('qtd');
+            $table->integer('qtd');
             $table->timestamps();
         });
     }

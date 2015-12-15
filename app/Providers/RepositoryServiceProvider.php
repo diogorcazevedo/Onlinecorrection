@@ -56,5 +56,10 @@ class RepositoryServiceProvider extends ServiceProvider
             'Onlinecorrection\Repositories\OrderItemRepositoryEloquent'
         );
 
+        $this->app->bind(
+            'Onlinecorrection\Repositories\DocumentImageRepository',
+            'Onlinecorrection\Repositories\DocumentImageRepositoryEloquent'
+        );
+
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Onlinecorrection\Http\Controllers\Auth;
 
-use Onlinecorrection\User;
+use Onlinecorrection\Models\User;
 use Validator;
 use Onlinecorrection\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;

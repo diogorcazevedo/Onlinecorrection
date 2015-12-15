@@ -16,7 +16,10 @@ class CreateDocumentsTable extends Migration
             $table->increments('id');
             $table->integer('project_id')->unsigned();
             $table->foreign('project_id')->references('id')->on('projects');
+            $table->integer('agent_one');
             $table->string('name');
+            $table->string('id_inscricao');
+            $table->decimal('final_evaluation',4,2);
             $table->smallInteger('status')->default(0);
             $table->timestamps();
         });

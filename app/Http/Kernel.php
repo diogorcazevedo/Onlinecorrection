@@ -29,5 +29,6 @@ class Kernel extends HttpKernel
         'auth' => \Onlinecorrection\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \Onlinecorrection\Http\Middleware\RedirectIfAuthenticated::class,
+        'auth.checkrole' => \Onlinecorrection\Http\Middleware\CheckRole::class,
     ];
 }

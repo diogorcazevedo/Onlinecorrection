@@ -1,0 +1,14 @@
+.notbackground{
+    background-color: transparent!important;
+}
+
+.header-middle-layout .container .row {
+    margin-left: 0;
+    margin-right: 0;
+    padding-top: 20px;
+}
+
+.listback{
+    background-color: #00262C;
+    color: #fff;
+}
