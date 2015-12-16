@@ -10,6 +10,7 @@ namespace Onlinecorrection\Http\Controllers;
 
 
 use Onlinecorrection\Models\Document;
+use Onlinecorrection\Models\Order;
 use Onlinecorrection\Repositories\ClientRepository;
 use Onlinecorrection\Repositories\DocumentRepository;
 use Onlinecorrection\Repositories\OrderRepository;
@@ -40,13 +41,18 @@ class OrdersController extends Controller
      * @var Document
      */
     private $document;
+    /**
+     * @var Order
+     */
+    private $order;
 
 
     public function __construct(OrderRepository $repository,
                                 DocumentRepository $documentRepository,
                                 ClientRepository $clientRepository,
                                 OrderService $orderService,
-                                Document $document)
+                                Document $document,
+                                Order $order)
     {
 
         $this->repository = $repository;
@@ -54,11 +60,12 @@ class OrdersController extends Controller
         $this->clientRepository = $clientRepository;
         $this->orderService = $orderService;
         $this->document = $document;
+        $this->order = $order;
     }
 
     public function index()
     {
-        $orders = $this->repository->paginate();
+        $orders = $this->order->orderBy('document_id', 'asc')->paginate();
         $orders->setPath('orders');
 
         return view('admin.orders.index',compact('orders'));
@@ -114,13 +121,22 @@ class OrdersController extends Controller
         $count = $this->document->count();
         $stszero = $this->document->where('status', '=', 0)->count();
         $stsum = $this->document->where('status', '=', 1)->count();
-        $ststwo = $this->document->where('status', '=', 2)->count();
+       // $ststwo = $this->document->where('status', '=', 2)->count();
         $ststree = $this->document->where('status', '=', 3)->count();
         $stsfour = $this->document->where('status', '=', 4)->count();
         $stsfive = $this->document->where('status', '=', 5)->count();
 
 
-        return view('admin.orders.qtd',compact('count','stszero','stsum','ststwo','ststree','stsfour','stsfive'));
 
+
+        return view('admin.orders.qtd',compact('count','stszero','stsum','ststree','ststree','stsfour','stsfive'));
+
+    }
+
+    public function average()
+    {
+
+        $documents = $this->documentRepository->findByField('status',3)->all();
+        return view('admin.orders.average',compact('documents'));
     }
 }

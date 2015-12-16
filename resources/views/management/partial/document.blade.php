@@ -9,7 +9,7 @@
 
 
                     <a href="{{route('management.create',['id'=>$document->id])}}" class="btn btn-default add-to-cart"><i
-                                class="fa fa-crosshairs"></i>Mais detalhes</a>
+                                class="fa fa-crosshairs"></i>Corrigir</a>
 
                 </div>
 

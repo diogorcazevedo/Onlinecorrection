@@ -36,8 +36,8 @@
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                            aria-expanded="false">Supervisão <span class="caret"></span></a>
                                         <ul class="dropdown-menu" role="menu">
-                                            <li><a href="{{route('management.index')}}">Corrigir discrepâncias </a></li>
                                             <li><a href="{{route('management.listing')}}">Listar discrepâncias </a></li>
+                                            <li><a href="{{route('management.index')}}">Corrigir discrepâncias </a></li>
                                             <li><a href="{{route('management.work')}}">Correções do Supervisor</a></li>
                                         </ul>
                                     </li>
@@ -45,9 +45,10 @@
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                            aria-expanded="false">Correções <span class="caret"></span></a>
                                         <ul class="dropdown-menu" role="menu">
-                                            <li><a href="{{route('admin.orders.teacher')}}">listagem Corretor</a></li>
+                                            <li><a href="{{route('admin.orders.teacher')}}">listagem por Corretor</a></li>
                                             <li><a href="{{route('admin.orders.index')}}">Listagem geral</a></li>
                                             <li><a href="{{route('admin.orders.qtd')}}">Quantitativa</a></li>
+                                            <li><a href="{{route('admin.orders.average')}}">listagem por média</a></li>
                                         </ul>
                                     </li>
                                 @elseif(Auth::user()->role == 'client')
@@ -101,13 +102,13 @@
     @yield('img_layout')
 </section>
 
-<footer style="clear: both;" id="footer"><!--Footer-->
+<footer style="clear: both; margin-top: 10%;" id="footer"><!--Footer-->
 
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
-                <p class="pull-left">Copyright © 2013 E-Shop Inc. All rights reserved.</p>
-                <p class="pull-right">Designed by <span><a target="_blank" href="http://invoinn.com/">InvoInn</a></span></p>
+                <p class="pull-left">Copyright © 2015 Acesso Público. All rights reserved.</p>
+                <p class="pull-right">Designed by <span><a target="_blank" href="http://invoinn.com/">ACESSO</a></span></p>
             </div>
         </div>
     </div>

@@ -2,12 +2,12 @@
 
 
 @section('content')
-    <div class="container">
+    <div class="container col-lg-offset-2 col-lg-8">
         <h4>Cadastro de professores e administradores</h4>
-<br/>
+        <br/>
         @include('errors._check')
 
-    {!! Form::open(['route'=>'clients.store']) !!}
+        {!! Form::open(['route'=>'clients.store']) !!}
 
         @include('admin.clients._form')
 
@@ -17,8 +17,8 @@
         </div>
 
 
-    {!! Form::close()!!}
- </div>
+        {!! Form::close()!!}
+    </div>
 
 
 @endsection

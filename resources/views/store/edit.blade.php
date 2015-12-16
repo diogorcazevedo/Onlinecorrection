@@ -5,7 +5,7 @@
     <div class="container" style="margin-top: 10%; margin-bottom: 10%;">
         <h3>Minha Correções</h3>
         <br/>
-        <a href=" {{route('store.index')}}" class="btn btn-default btn-info pull-right">Voltar</a>
+        <a href=" {{route('store.index')}}" class="btn btn-default btn-primary pull-right">Voltar para correção</a>
         <br/>
         <br/>
 

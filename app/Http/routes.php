@@ -56,6 +56,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth.checkrole:admin','as'=>'admi
 
     Route::get('orders',['as'=>'orders.index','uses'=> 'OrdersController@index']);
     Route::get('orders/teacher',['as'=>'orders.teacher','uses'=> 'OrdersController@teacher']);
+    Route::get('orders/average',['as'=>'orders.average','uses'=> 'OrdersController@average']);
     Route::get('orders/visure/{id}',['as'=>'orders.visure','uses'=> 'OrdersController@visure']);
     Route::get('orders/qtd',['as'=>'orders.qtd','uses'=> 'OrdersController@qtd']);
 

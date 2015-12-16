@@ -13,8 +13,6 @@
                 <th>Não Corrigidas</th>
                 <th>Única Correção</th>
                 <th>Dupla Correção</th>
-                <th>Aprovados</th>
-                <th>Para Supervisão</th>
                 <th>Supervisionados</th>
                 <th>Total</th>
             </tr>
@@ -23,9 +21,11 @@
                 <tr>
                     <td>{{$stszero}}</td>
                     <td>{{$stsum}}</td>
-                    <td>{{$ststwo}}</td>
-                    <td>{{$ststree}}</td>
-                    <td>{{$stsfour}}</td>
+                    <td>
+                        Aprovados: {{$ststree}}<br/>
+                        <hr/>
+                        Crítica: {{$stsfour}}<br/>
+                    </td>
                     <td>{{$stsfive}}</td>
                     <td>{{$count}}</td>
                 </tr>

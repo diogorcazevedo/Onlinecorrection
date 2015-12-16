@@ -23,7 +23,7 @@
                 <th>Id</th>
                 <th>Projeto</th>
                 <th>Status</th>
-                <th>Atribuir</th>
+                <th>Redistribuir para nova correção</th>
                 <th>Ação</th>
             </tr>
             </thead>
@@ -36,7 +36,7 @@
                     <td>
                         <a href="{{route('management.status',['id'=>$document->id])}}"
                            class="btn-sm btn btn-primary">
-                            Nova correção
+                            Única correção
                         </a>
 
                         <a href="{{route('management.statuszero',['id'=>$document->id])}}"

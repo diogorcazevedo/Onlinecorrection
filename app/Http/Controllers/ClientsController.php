@@ -43,7 +43,6 @@ class ClientsController extends Controller
     public function create()
     {
 
-
         return view('admin.clients.create');
 
     }
@@ -52,8 +51,7 @@ class ClientsController extends Controller
     {
         $data = $request->all();
         $this->clientService->create($data);
-        Session::put('success', 'Registro alterado com sucesso');
-        return redirect('auth/login');
+        return redirect()->route('home');
     }
 
     public function edit($id)
@@ -86,7 +84,6 @@ class ClientsController extends Controller
     {
         $data = $request->all();
         $this->clientService->update($data,$id);
-        Session::put('success', 'Registro alterado com sucesso');
         return redirect('auth/login');
     }
 }
