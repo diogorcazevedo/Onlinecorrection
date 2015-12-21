@@ -24,12 +24,9 @@ class ManagementDocumentRequest extends Request
     public function rules()
     {
         return [
-            'tipo'=>'required',
-            'tema'=>'required',
-            'coesao'=>'required',
-            'coerencia'=>'required',
-            'gramatica'=>'required',
-
+            'user_id'=>'required',
+            'document_id'=>'required',
+            'package_id'=>'required',
         ];
     }
 }

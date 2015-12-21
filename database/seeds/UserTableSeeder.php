@@ -39,7 +39,13 @@ class UserTableSeeder extends Seeder
         ])->client()->save(factory(Client::class)->make());
 
 
-
+        factory(User::class)->create([
+            'name' => 'Diogo',
+            'email' => 'diogorcazevedo@gmail.com',
+            'password' => bcrypt(123456),
+            'role' => 'master',
+            'remember_token' => str_random(10),
+        ])->client()->save(factory(Client::class)->make());
 
      /*   factory(User::class, 10)->create()->each(function ($u) {
 

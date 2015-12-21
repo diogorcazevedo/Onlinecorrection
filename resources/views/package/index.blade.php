@@ -29,16 +29,29 @@
             @foreach($packages as $package)
             <tr>
                 <td>{{$package->id}}</td>
-                <td>{{$package->user->name}}</td>
+                <td>{{$package->user_id}}</td>
                 <td>{{$package->project->name}}</td>
-                <td>{{$package->qtd}}</td>
+                <td><?php echo $package->document->count();?></td>
                 <td class="text-center">
-                  <a href="{{route('store.doclist',['id'=>$package->id])}}" class="btn-sm btn btn-primary">Corrigir Pacote</a>
+                @if($package->assigned == 1)
+                    <p class="alert alert-info">Lote atribuido</p>
+                    @else
+                    @if($package->user_id == 1)
+                        <a href="{{route('packages.create',['id'=>$package->id])}}" class="btn-sm btn btn-primary">
+                           Adicionar
+                        </a>
+                    @else
+                        <a href="{{route('packages.second',['id'=>$package->id])}}" class="btn-sm btn btn-primary">
+                            Adicionar
+                        </a>
+                    @endif
+                @endif
                 </td>
             </tr>
             @endforeach
             </tbody>
         </table>
+        {!! $packages->render() !!}
 
     </div>
 

@@ -33,6 +33,15 @@ class ClientService
 
     public function update(array $data,$id)
     {
+        $encrypt = $data['user']['password'];
+        $data['user']['password'] = bcrypt($encrypt);
+        $this->clientRepository->update($data,$id);
+        $userId = $this->clientRepository->find($id,['user_id'])->user_id;
+        $this->userRepository->update($data['user'],$userId);
+    }
+
+    public function update_role(array $data,$id)
+    {
         $this->clientRepository->update($data,$id);
         $userId = $this->clientRepository->find($id,['user_id'])->user_id;
         $this->userRepository->update($data['user'],$userId);

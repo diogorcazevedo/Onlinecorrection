@@ -6,9 +6,9 @@
             <li class="list-group-item listback"><b>AFERIR PONTUAÇÃO E ENVIAR</b></li>
         </ul>
         <div class="product-details"><!--product-details-->
-            <div class="col-sm-8">
+            <div class="col-sm-7">
                 <div class="view-product">
-                        <img src="{{url('uploads/'.$document->id_inscricao.'.jpg')}}"
+                    <img src="{{url('redacoes/sexto/'.$document->id_inscricao.'.jpg')}}"
                              alt="" />
                 </div>
                 <div id="similar-product" class="carousel slide" data-ride="carousel">
@@ -16,10 +16,10 @@
                 </div>
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-5">
                 <div style="padding-right: 5%;" class="product-information"><!--/product-information-->
-                    <h2>{{ $document->project->name }} :: {{ $document->name }} :: {{ $document->id }}</h2>
-                    <p>Status do documento: {{ $document->status }}</p>
+                    <h2>{{ $document->project->name }} ::  :: {{ $document->id }}</h2>
+
 
                         @include('errors._check')
                         {!! Form::open(['route'=>'management.store']) !!}

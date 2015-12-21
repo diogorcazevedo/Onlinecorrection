@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Session;
 use Onlinecorrection\Http\Requests;
 use Onlinecorrection\Repositories\ClientRepository;
 use Onlinecorrection\Http\Requests\AdminClientRequest;
+use Onlinecorrection\Http\Requests\NewClientRequest;
 
 use Onlinecorrection\Services\ClientService;
 
@@ -47,7 +48,7 @@ class ClientsController extends Controller
 
     }
 
-    public function store(AdminClientRequest $request)
+    public function store(NewClientRequest $request)
     {
         $data = $request->all();
         $this->clientService->create($data);
@@ -78,6 +79,12 @@ class ClientsController extends Controller
 
     }
 
+    public function updaterole(AdminClientRequest $request, $id)
+    {
+        $data = $request->all();
+        $this->clientService->update_role($data,$id);
+        return redirect('auth/login');
+    }
 
 
     public function update(AdminClientRequest $request, $id)

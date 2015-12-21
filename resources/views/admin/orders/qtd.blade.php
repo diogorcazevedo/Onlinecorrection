@@ -10,24 +10,24 @@
         <table class="table table-bordered">
             <thead>
             <tr>
-                <th>Não Corrigidas</th>
-                <th>Única Correção</th>
-                <th>Dupla Correção</th>
-                <th>Supervisionados</th>
-                <th>Total</th>
+                <th>Total de documentos</th>
+                <th>Demanda</th>
+                <th>Correções</th>
+                <th>Zeros (podem existir duplicados)</th>
+                <th>Discrepâncias</th>
+                <th>Documentos Supervisionados</th>
+                <th>Supervisões</th>
             </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>{{$stszero}}</td>
-                    <td>{{$stsum}}</td>
-                    <td>
-                        Aprovados: {{$ststree}}<br/>
-                        <hr/>
-                        Crítica: {{$stsfour}}<br/>
-                    </td>
-                    <td>{{$stsfive}}</td>
-                    <td>{{$count}}</td>
+                    <td>{{$counts}}</td>
+                    <td>{{$counts *2}}</td>
+                    <td>{{$orders}}</td>
+                    <td>{{$zeros}}</td>
+                    <td>{{$discrepancy}}</td>
+                    <td>{{$manager}}</td>
+                    <td>{{$managers}}</td>
                 </tr>
             </tbody>
         </table>

@@ -1,11 +1,9 @@
-@extends('app')
-
-
-@section('content')
-    <div class="container">
+@extends('layout.layout')
+@section('img_layout')
+    <div style="margin-top: 5%; margin-bottom: 5%;" class="col-lg-offset-1 col-lg-10 padding-right">
         <h3>Clientes</h3>
         <br/>
-        <a href=" {{route('clients.create')}}" class="btn btn-default btn-info">Cadastrar Cliente</a>
+        <a href=" {{route('home')}}" class="btn btn-default btn-info">Voltar</a>
         <br/>
         <br/>
 

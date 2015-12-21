@@ -3,7 +3,7 @@
 
 @section('img_layout')
     <div class="container" style="margin-top: 10%; margin-bottom: 10%;">
-        <h3>Minha Correções</h3>
+        <h3>Minhas Correções</h3>
         <br/>
         <a href=" {{route('home')}}" class="btn btn-default btn-info pull-right">Voltar</a>
         <br/>
@@ -20,7 +20,7 @@
                 <th>Tema</th>
                 <th>Coesão</th>
                 <th>Coerência</th>
-                <th>Gramatica</th>
+                <th>Gramática</th>
                 <th>Anulada</th>
                 <th>Nota</th>
             </tr>
@@ -29,8 +29,8 @@
             @foreach($orders as $order)
             <tr>
                 <td>{{$order->id}}</td>
-                <td>{{$order->client->user->name}}</td>
-                <td>{{$order->client_id}}</td>
+                <td>{{$order->user->name}}</td>
+                <td>{{$order->user_id}}</td>
                 <td>{{$order->document_id}}</td>
                 <td>{{$order->tipo}}</td>
                 <td>{{$order->tema}}</td>

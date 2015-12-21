@@ -1,8 +1,6 @@
 @extends('layout.layout')
 
-
 @section('img_layout')
-
     @if(Auth::user())
         @if(Auth::user()->role == 'admin')
             @if(Session::has('success'))
@@ -26,10 +24,11 @@
                     <p class="well well-sm text-center">Manual de Uso do sistema:<br/>Correção On line</p>
                     <ul class="list-group">
                         <li class="list-group-item listback">Estamos no menu principal do sistema de correção</li>
-                        <li class="list-group-item listback">Neste ambiente podemos acompanhar nosso relatório de
-                            correção, podemos editar nossos dados pessoais e prinipalmente ir para: <a
+                        <li class="list-group-item listback">Ambiente para acompanhar relatório de
+                            correção, editar nossos dados pessoais e corrigir provas pela: <a
                                     href="{{ route('store.index') }}" class="btn btn-xs btn-default">Esteira de
-                                correção</a></li>
+                            correção</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -38,7 +37,9 @@
                 <div class="content well well-sm">
                     <p class="well well-sm text-center">Manual de Uso do sistema:<br/>Correção On line</p>
                     <ul class="list-group">
-                        <li class="list-group-item listback">{{ auth()->user()->name }}<br/> Aguarde autorização do supervisor para seu acesso ao sistema</li>
+                        <li class="list-group-item listback">{{ auth()->user()->name }}<br/> Aguarde autorização do
+                            supervisor para seu acesso ao sistema
+                        </li>
                     </ul>
                 </div>
             </div>

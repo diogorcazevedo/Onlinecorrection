@@ -8,7 +8,7 @@
         <div class="product-details"><!--product-details-->
             <div class="col-sm-7">
                 <div class="view-product">
-                        <img src="{{url('redacoes/sexto/'.$document->id_inscricao.'.jpg')}}"
+                    <img src="{{url('redacoes/sexto/'.$document->id_inscricao.'.jpg')}}"
                              alt="" />
                 </div>
                 <div id="similar-product" class="carousel slide" data-ride="carousel">
@@ -19,9 +19,10 @@
             <div class="col-sm-5">
                 <div style="padding-right: 5%;" class="product-information"><!--/product-information-->
                     <h2>{{ $document->project->name }} ::  :: {{ $document->id }}</h2>
+                    <p>Status do documento: {{ $document->status }}</p>
 
                         @include('errors._check')
-                        {!! Form::open(['route'=>'store.store']) !!}
+                        {!! Form::open(['route'=>'discrepancy.store']) !!}
 
                         @include('store.partial._form')
 

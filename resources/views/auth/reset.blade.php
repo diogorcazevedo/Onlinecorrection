@@ -1,7 +1,7 @@
-@extends('app')
+@extends('layout.layout')
 
-@section('content')
-<div class="container-fluid">
+@section('img_layout')
+	<div style="margin-top: 15%; margin-bottom: 5%;" class="col-sm-12 padding-right">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">

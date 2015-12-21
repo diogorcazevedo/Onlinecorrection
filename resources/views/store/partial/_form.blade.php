@@ -155,29 +155,42 @@
     <div class="form-control">
         <label>
             Fuga ao tema
-            <input type="radio" name="zero" value="1">
+            <input type="radio" name="zero" value="Fuga ao tema">
         </label>
     </div>
     <div class="form-control">
         <label style="margin-left: 6%;">
             Fuga ao tipo
-            <input type="radio" name="zero" value="2">
+            <input type="radio" name="zero" value="Fuga ao tipo">
         </label>
     </div>
     <div class="form-control">
         <label style="margin-left: 6%;">
             Letra ilegível
-            <input type="radio" name="zero" value="3">
+            <input type="radio" name="zero" value="Letra ilegível">
         </label>
     </div>
     <div class="form-control">
         <label style="margin-left: 6%;">
             Em branco
-            <input type="radio" name="zero" value="4">
+            <input type="radio" name="zero" value="Em branco">
+        </label>
+    </div>
+    <div class="form-control">
+        <label style="margin-left: 6%;">
+            Menos de 8 linhas
+            <input type="radio" name="zero" value="8 linhas">
+        </label>
+    </div>
+    <div class="form-control">
+        <label style="margin-left: 6%;">
+            Cópia
+            <input type="radio" name="zero" value="copia">
         </label>
     </div>
 </div>
 
-{!! Form::hidden('client_id', auth()->user()->id) !!}
+{!! Form::hidden('user_id', auth()->user()->id) !!}
 {!! Form::hidden('document_id', $document->id) !!}
 {!! Form::hidden('status', $document->status) !!}
+{!! Form::hidden('package_id', $document->package_id) !!}

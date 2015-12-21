@@ -1,8 +1,7 @@
-@extends('app')
+@extends('layout.layout')
 
-
-@section('content')
-    <div class="container col-lg-offset-2 col-lg-8">
+@section('img_layout')
+    <div style="margin-top: 15%; margin-bottom: 5%;" class="col-lg-offset-2 col-sm-8 padding-right">
         <h4>Cadastro de professores e administradores</h4>
         <br/>
         @include('errors._check')

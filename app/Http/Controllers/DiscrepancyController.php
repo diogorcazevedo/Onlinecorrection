@@ -12,7 +12,7 @@ use Onlinecorrection\Services\ManagementService;
 use Onlinecorrection\Http\Requests\ManagementDocumentRequest;
 
 
-class ManagementController extends Controller
+class DiscrepancyController extends Controller
 {
 
 
@@ -59,66 +59,58 @@ class ManagementController extends Controller
     }
 
 
-
-    //Trabalhos do supervisor/supervisores
-
-    public function work()
+    public function listing()
     {
-        $orders = $this->order->userid()->get();
-        return view('management.work', compact('orders'));
-
-    }
-
-    public function workall()
-    {
-        $orders = $this->orderRepository->findWhereIn('user_id', [3, 5, 6, 15, 18]);
-        return view('management.workall', compact('orders'));
-
-    }
-
-
-
-
-
-
-
-
-
-
-    //zero
-    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-    public function zero()
-    {
-
-        $orders = $this->orderRepository->findWhere([
-            'checked'=>'1',
-            'manager'=>'0',
+        $documents = $this->documentRepository->findWhere([
+            'discrepancy' => '1',
+            'manager' => '0',
         ]);
 
-        return view('management.zero', compact('orders'));
+        return view('discrepancy.listing', compact('documents'));
 
     }
 
-
-    public function zerolist($id)
+    public function refresh()
     {
-        $orders = $this->orderRepository->findByField('document_id', $id);
-        $count = count($orders);
+        $documents = $this->documentRepository->findByField('upload', 1)->all();
+        foreach ($documents as $document):
+            $orders = $this->orderRepository->findByField('document_id', $document->id)->all();
+            if (!empty($orders)):
+                if (count($orders) != 1):
+                    foreach ($orders as $order):
+                        $avaliacao[] = $order->evaluation;
+                    endforeach;
+                    $notaum = $avaliacao[0];
+                    $notadois = $avaliacao[1];
 
-        if ($count == 1):
-            Session::put('success', 'Ainda não existe segunda correção para este documento');
-            return redirect()->route('management.zero');
-        endif;
-        return view('management.zerolist', compact('orders'));
+                    //salvando a média
+                    $partialevaluation = $notaum + $notadois;
+                    $finalevaluation = $partialevaluation / 2;
 
+                    $document->final_evaluation = $finalevaluation;
+                    $document->save();
+
+                    //verificando se existe discrepancia
+                    $notasomada = $notadois - $notaum;
+                    $soma = abs($notasomada);
+
+                    if ($soma > 2.5):
+                        $document->discrepancy = 1;
+                        $document->save();
+                        echo '<br/>'. $document->id. '- save <br/>';
+                    else:
+                        echo '<br/>'. $document->id. '- not save <br/>';
+                    endif;
+                    unset($avaliacao);
+                endif;
+            endif;
+        endforeach;
+
+        return redirect()->route('discrepancy.listing');
     }
 
 
-
-
-    //correção ZERO
-    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//correção
 
 
     public function create($id)
@@ -126,7 +118,7 @@ class ManagementController extends Controller
 
         $document = $this->documentRepository->find($id);
 
-        return view('management.create', compact('document'));
+        return view('discrepancy.create', compact('document'));
     }
 
     public function store(ManagementDocumentRequest $request)
@@ -174,7 +166,7 @@ class ManagementController extends Controller
         endif;
 
         Session::put('success', 'Corrigida com sucesso');
-        return redirect()->route('management.zero');
+        return redirect()->route('discrepancy.listing');
     }
 
 }

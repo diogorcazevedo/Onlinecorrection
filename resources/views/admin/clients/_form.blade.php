@@ -41,5 +41,5 @@
 <div class="form-group">
     {!! Form::label('password_confirmation','Confirmar senha:') !!}
     <br/>
-    {!! Form::password('user[password]',null,['class'=>'form-control']) !!}
+    {!! Form::password('password',null,['class'=>'form-control']) !!}
 </div>

@@ -6,7 +6,7 @@
         <h3>Editar Professor: {{$client->user->name}}</h3>
 
         @include('errors._check')
-        {!! Form::model($client,['route'=>['clients.update',$client->id]]) !!}
+        {!! Form::model($client,['route'=>['clients.updaterole',$client->id]]) !!}
 
         @include('admin.clients._formfunction')
 

@@ -17,4 +17,9 @@ class Project extends Model implements Transformable
         return $this->hasMany(Document::class);
     }
 
+    public function packages()
+    {
+        return $this->hasMany(Document::class);
+    }
+
 }

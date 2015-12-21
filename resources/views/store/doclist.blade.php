@@ -9,7 +9,7 @@
                 {{Session::forget('success')}}
             @endif
             <h2 class="title text-center">Escolher documento para correção</h2>
-            @include('management.partial.document',['documents'=>$documents])
+            @include('store.partial.document',['documents'=>$documents])
         </div>
     </div>
 @endsection

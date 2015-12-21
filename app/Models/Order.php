@@ -12,7 +12,8 @@ class Order extends Model implements Transformable
     use TransformableTrait;
 
     protected $fillable =[
-        'client_id',
+        'user_id',
+        'package_id',
         'document_id',
         'evaluation',
         'tipo',
@@ -21,17 +22,27 @@ class Order extends Model implements Transformable
         'coerencia',
         'gramatica',
         'zero',
+        'checked',
     ];
 
+
+    //belongs
     public function document()
     {
         return $this->belongsTo(Document::class,'document_id','id');
     }
 
-    public function client()
+    public function user()
     {
-        return $this->belongsTo(Client::class,'client_id','id');
+        return $this->belongsTo(User::class,'user_id','id');
     }
+
+    public function package()
+    {
+        return $this->belongsTo(Package::class,'package_id','id');
+    }
+
+    //belongs
 
     public function scopeOfOrder($query,$id)
     {
@@ -39,9 +50,9 @@ class Order extends Model implements Transformable
 
     }
 
-    public function scopeClientid($query)
+    public function scopeUserid($query)
     {
-        return  $query->where('client_id','=',auth()->user()->id);
+        return  $query->where('user_id','=',auth()->user()->id);
     }
 
 }

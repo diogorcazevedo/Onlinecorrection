@@ -50,21 +50,6 @@ class ManagementService
     }
 
 
-    public function coachtrack($id)
-    {
-
-        $document = $this->documentRepository->find($id);
-
-        if (!empty($document)) {
-                //salvando dados na tabela documents
-                $document->status = 5;
-                $document->save();
-            }
-
-            return $document;
-
-    }
-
 
     public function evaluation($data)
     {

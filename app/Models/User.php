@@ -49,4 +49,15 @@ class User extends Model implements Transformable, AuthenticatableContract,
 
     }
 
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function packages()
+    {
+        return $this->hasMany(Package::class);
+    }
+
+
 }

@@ -11,7 +11,7 @@
             </div>
             {{Session::forget('success')}}
         @endif
-        <h3>Adicionar Lotes de Prova</h3>
+        <h3>Relatório de Lotes</h3>
         <br/>
         <br/>
 
@@ -31,14 +31,17 @@
                 <td>{{$package->id}}</td>
                 <td>{{$package->user->name}}</td>
                 <td>{{$package->project->name}}</td>
-                <td>{{$package->qtd}}</td>
+                <td><?php echo $package->document->count();?></td>
                 <td class="text-center">
-                  <a href="{{route('store.doclist',['id'=>$package->id])}}" class="btn-sm btn btn-primary">Corrigir Pacote</a>
+                   <a href="{{route('admin.packages.docsall',['id'=>$package->id])}}" class="btn-sm btn btn-primary">
+                       Visualizar
+                   </a>
                 </td>
             </tr>
             @endforeach
             </tbody>
         </table>
+        {!! $packages->render() !!}
 
     </div>
 

@@ -12,3 +12,17 @@
     background-color: #00262C;
     color: #fff;
 }
+
+@media (max-width: 767px) {
+    .mainmenu.pull-left{
+        float: none !important;
+    }
+    .header-bottom{
+        background-color:#172431;
+
+
+    }
+    .search_box{
+        margin-top: -28px;
+    }
+}

@@ -4,7 +4,7 @@ namespace Onlinecorrection\Http\Requests;
 
 use Onlinecorrection\Http\Requests\Request;
 
-class StoreDocumentRequest extends Request
+class NewClientRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,10 @@ class StoreDocumentRequest extends Request
     public function rules()
     {
         return [
-            'user_id'=>'required',
-            'document_id'=>'required',
-            'package_id'=>'required',
+
+            'password'=>'required'
+
+
         ];
     }
 }

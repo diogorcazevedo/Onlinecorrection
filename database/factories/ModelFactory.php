@@ -36,36 +36,14 @@ $factory->define(Onlinecorrection\Models\Client::class, function (Faker\Generato
 $factory->define(Onlinecorrection\Models\Project::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->word,
-        'description' => $faker->sentence,
-        'qtd' => $faker->randomDigitNotNull
+        'description' => $faker->sentence
     ];
 });
 
 
-
-$factory->define(Onlinecorrection\Models\Document::class, function (Faker\Generator $faker) {
+$factory->define(Onlinecorrection\Models\Package::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->word,
-        'project_id' => 1,
-        'status' => 0
+        'user_id' => 1,
+        'project_id' => 1
     ];
 });
-
-
-$factory->define(Onlinecorrection\Models\Order::class, function (Faker\Generator $faker) {
-    return [
-        'client_id' => rand(1,10),
-        'total' => rand(50,100),
-        'status' => 0
-
-    ];
-});
-
-
-
-$factory->define(Onlinecorrection\Models\OrderItem::class, function (Faker\Generator $faker) {
-    return [
-
-    ];
-});
-

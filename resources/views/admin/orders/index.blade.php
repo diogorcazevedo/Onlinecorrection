@@ -27,8 +27,8 @@
             @foreach($orders as $order)
                 <tr>
                     <td>{{$order->id}}</td>
-                    <td>{{$order->client->user->name}}</td>
-                    <td>{{$order->client_id}}</td>
+                    <td>{{$order->user->name}}</td>
+                    <td>{{$order->user_id}}</td>
                     <td>{{$order->document_id}}</td>
                     <td>{{$order->tipo}}</td>
                     <td>{{$order->tema}}</td>

@@ -2,7 +2,7 @@
 
 @section('img_layout')
     <div class="container" style="margin-top: 10%; margin-bottom: 10%;">
-        <h3>Ordens de Pedido</h3>
+        <h3>Correções por Professor</h3>
         <br/>
         <br/>
 
@@ -17,14 +17,14 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($clients as $client)
+            @foreach($users as $user)
                 <tr>
-                    <td>#{{$client->id}}</td>
-                    <td>{{$client->user->name}}</td>
-                    <td>{{$client->updated_at}}</td>
-                    <td><?php echo count($client->orders);?></td>
+                    <td>#{{$user->id}}</td>
+                    <td>{{$user->name}}</td>
+                    <td>{{$user->updated_at}}</td>
+                    <td><?php echo $user->orders->count();?></td>
                     <td>
-                        <a href="{{route('admin.orders.visure',['id'=>$client->id])}}" class="btn-sm btn btn-primary">
+                        <a href="{{route('admin.orders.visure',['id'=>$user->id])}}" class="btn-sm btn btn-primary">
                             Visualizar
                         </a>
                     </td>
@@ -32,7 +32,7 @@
             @endforeach
             </tbody>
         </table>
-        {!! $clients->render() !!}
+        {!! $users->render() !!}
 
     </div>
 

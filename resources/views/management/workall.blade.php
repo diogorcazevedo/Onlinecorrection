@@ -3,9 +3,9 @@
 
 @section('img_layout')
     <div class="container" style="margin-top: 10%; margin-bottom: 10%;">
-        <h3>Minha Correções</h3>
+        <h3>Correções de Todos Supervisores</h3>
         <br/>
-        <a href=" {{route('admin.orders.teacher')}}" class="btn btn-default btn-info pull-right">Voltar</a>
+        <a href=" {{route('home')}}" class="btn btn-default btn-info pull-right">Voltar</a>
         <br/>
         <br/>
 
@@ -20,7 +20,7 @@
                 <th>Tema</th>
                 <th>Coesão</th>
                 <th>Coerência</th>
-                <th>Gramatica</th>
+                <th>Gramática</th>
                 <th>Anulada</th>
                 <th>Nota</th>
             </tr>

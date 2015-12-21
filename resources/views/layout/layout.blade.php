@@ -22,8 +22,7 @@
                     <div class="shop-menu pull-left">
                         <ul class="nav navbar-nav">
                             @if(Auth::user())
-                                @if(Auth::user()->role == 'admin' or Auth::user()->role == 'coach')
-                                    <li class="notbackground"><a href="{{route('admin.clients.index')}}">Usuários</a></li>
+                                @if(Auth::user()->role == 'master')
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                            aria-expanded="false">Projeto <span class="caret"></span></a>
@@ -32,13 +31,26 @@
                                             <li class="notbackground"><a href="{{route('admin.documents.index')}}">ADM. Documentos</a></li>
                                         </ul>
                                     </li>
+
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                           aria-expanded="false">Pacotes <span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li class="notbackground"><a href="{{route('admin.packages.upload')}}">Upload</a></li>
+                                        </ul>
+                                    </li>
+                                    @endif
+                                @if(Auth::user()->role == 'admin' or Auth::user()->role == 'coach' or Auth::user()->role == 'master')
+                                    <li class="notbackground"><a href="{{route('admin.clients.index')}}">Usuários</a></li>
+
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                            aria-expanded="false">Supervisão <span class="caret"></span></a>
                                         <ul class="dropdown-menu" role="menu">
-                                            <li><a href="{{route('management.listing')}}">Listar discrepâncias </a></li>
-                                            <li><a href="{{route('management.index')}}">Corrigir discrepâncias </a></li>
+                                            <li><a href="{{route('discrepancy.listing')}}">Discrepâncias </a></li>
+                                            <li><a href="{{route('management.zero')}}">Provas Zeradas </a></li>
                                             <li><a href="{{route('management.work')}}">Correções do Supervisor</a></li>
+                                            <li><a href="{{route('management.workall')}}">Correções Todos Supervisores</a></li>
                                         </ul>
                                     </li>
                                     <li class="dropdown">
@@ -47,7 +59,7 @@
                                         <ul class="dropdown-menu" role="menu">
                                             <li><a href="{{route('admin.orders.teacher')}}">listagem por Corretor</a></li>
                                             <li><a href="{{route('admin.orders.index')}}">Listagem geral</a></li>
-                                            <li><a href="{{route('admin.orders.qtd')}}">Quantitativa</a></li>
+                                            <li><a href="{{route('admin.orders.qtd')}}">Quantitativo</a></li>
                                             <li><a href="{{route('admin.orders.average')}}">listagem por média</a></li>
                                         </ul>
                                     </li>
@@ -108,7 +120,7 @@
         <div class="container">
             <div class="row">
                 <p class="pull-left">Copyright © 2015 Acesso Público. All rights reserved.</p>
-                <p class="pull-right">Designed by <span><a target="_blank" href="http://invoinn.com/">ACESSO</a></span></p>
+                <p class="pull-right">Designed by <span><a target="_blank" href="https://www.acessopublico.org.br/">ACESSO</a></span></p>
             </div>
         </div>
     </div>
