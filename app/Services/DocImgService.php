@@ -21,14 +21,12 @@ class DocImgService
     public function doclist()
     {
         //$path = "../public/redacoes/redacaoMusica";
-        $path = "../public/redacoes/sexto";
+        $path = "../public/redacoes/imgPrimeiraSerie/imgUm";
         $diretorio = dir($path);
         // echo "Lista de Arquivos do diretório '<strong>" . $path . "</strong>':<br />";
         while ($arquivo = $diretorio->read()) {
             //  echo "<a href='" . $path . $arquivo . "'>" . $arquivo . "</a><br />";
-
             $pieces = explode(".", $arquivo);
-
             $dados[] = $pieces[0];
         }
         $diretorio->close();
@@ -40,19 +38,26 @@ class DocImgService
 
     public function refreshproject($documents)
     {
-        $contador = 1;
+        $contador = 115;
         foreach ($documents as $document):
+            \DB::beginTransaction();
+            try {
             $document->package_id = $contador;
-            $document->project_id = 2;
+            $document->project_id = 3;
             $upload = $document->upload;
-            $document->upload = $upload + 1;
+            $document->upload = $upload + 200;
             $document->save();
+            \DB::commit();
+        } catch (\Exception $e) {
+                \DB::rollback();
+                throw $e;
+            }
             $contador++;
-            if ($contador == 50):
-                $contador = 1;
+            if ($contador == 116):
+                $contador = 115;
             endif;
         endforeach;
-        $feedback = 'Projeto 2 Importado com sucesso';
+        $feedback = 'Projeto 3 segunda parte Importado com sucesso';
         return $feedback;
 
     }

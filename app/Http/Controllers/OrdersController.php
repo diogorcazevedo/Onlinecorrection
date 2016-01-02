@@ -93,15 +93,41 @@ class OrdersController extends Controller
 
     public function qtd()
     {
-        $counts = $this->document->where('upload', '=', 1)->count();
+        $counts = $this->document->where('upload', '!=', 0)->count();
+        $sexto = $this->document->where('upload', '=', 1)->count();
+        $primeira = $this->document->where('upload', '>', 1)->count();
+
         $orders = $this->order->count();
-        $zeros = $this->order->where('checked', '=', 1)->count();
-        $discrepancy = $this->document->where('discrepancy', '=', 1)->count();
-        $manager = $this->document->where('manager', '=', 1)->count();
-        $managers = $this->order->where('manager', '=', 1)->count();
+        $ordersexta = $this->order->where('package_id', '<', 50)->count();
+        $orderprimeiro = $this->order->where('package_id', '>', 50)->count();
 
 
-        return view('admin.orders.qtd',compact('counts','orders','zeros','discrepancy','manager','managers'));
+        $zerosexta = $this->repository->findWhere(['checked'=>1, ['package_id','<',50]])->count();
+        $zeroprimeira = $this->repository->findWhere(['checked'=>1, ['package_id','>',50]])->count();
+
+
+        $discrepancysexta = $this->documentRepository->findWhere(['discrepancy'=>1, 'project_id'=>2])->count();
+        $discrepancyprimeira = $this->documentRepository->findWhere(['discrepancy'=>1, 'project_id'=>3])->count();
+
+        $managersexta = $this->documentRepository->findWhere(['manager'=>1, 'project_id'=>2])->count();
+        $managerprimeira = $this->documentRepository->findWhere(['manager'=>1, 'project_id'=>3])->count();
+
+
+        $managerssexta = $this->repository->findWhere(['manager'=>1, ['package_id','<',50]])->count();
+        $managersprimeira = $this->repository->findWhere(['manager'=>1, ['package_id','>',50]])->count();
+
+
+
+
+
+        return view('admin.orders.qtd',compact('counts','orders',
+                                                'zerosexta','zeroprimeira',
+                                                'discrepancysexta','discrepancyprimeira',
+                                                'managersexta','managerprimeira',
+                                                'managerssexta','managersprimeira',
+                                                'sexto','primeira',
+                                                'ordersexta','orderprimeiro'
+                                                    ));
 
     }
 

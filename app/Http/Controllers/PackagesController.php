@@ -63,6 +63,33 @@ class PackagesController extends Controller
     //==========================================================================================
 
 
+
+    public function control()
+    {
+
+        $dados = $this->docImgService->doclist();
+        $i = 1;
+        foreach ($dados as $value) {
+            if(!empty($value)):
+                echo '<hr>';
+                echo $i++.' - '.$value;
+                echo '<br/>';
+                $check = $this->documentRepository->findByField('id_inscricao', $value)->first();
+                if(empty($check)):
+                    echo '<hr>';
+                    echo $i++.' - '.$value;
+                    echo '<br/>';
+                    echo $value . ' :: Não Encontrado';
+                    echo '<br/>';
+                    echo '<hr>';
+                    echo '<br/>';
+                endif;
+            endif;
+        }
+
+
+    }
+
     //
     //
     //  Pacote client
@@ -112,16 +139,6 @@ class PackagesController extends Controller
 
     }
 
-
-    public function package()
-    {
-
-        $package1 = $this->documentRepository->findWhere(['project_id'=>'5','project_id'=>'5'])->all();
-
-
-        return view('store.package', compact('documents'));
-
-    }
 
 
     //==========================================================================================

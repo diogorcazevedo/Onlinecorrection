@@ -178,8 +178,8 @@
     </div>
     <div class="form-control">
         <label style="margin-left: 6%;">
-            Menos de 8 linhas
-            <input type="radio" name="zero" value="8 linhas">
+            Menos de 10 linhas
+            <input type="radio" name="zero" value="10 linhas">
         </label>
     </div>
     <div class="form-control">

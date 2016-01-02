@@ -49,6 +49,10 @@ Route::group(['prefix'=>'admin','middleware'=>'auth.checkrole:master','as'=>'adm
     Route::get('packages/index',['as'=>'packages.index','uses'=> 'PackagesController@index']);
     Route::get('packages/create/{id}',['as'=>'packages.create','uses'=> 'PackagesController@create']);
     Route::get('packages/second/{id}',['as'=>'packages.second','uses'=> 'PackagesController@second']);
+
+    //
+
+    Route::get('packages/control',['as'=>'packages.control','uses'=> 'PackagesController@control']);
 });
 
 Route::group(['prefix'=>'admin','middleware'=>'auth.checkrole:admin','as'=>'admin.'],function(){

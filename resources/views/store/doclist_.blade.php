@@ -33,6 +33,7 @@
                         @foreach($document->orders as $orders)
                             @if($orders->user_id == auth()->user()->id)
                                 <p class="alert alert-info">Documento Corrigido</p>
+
                             @endif
                         @endforeach
                     </td>

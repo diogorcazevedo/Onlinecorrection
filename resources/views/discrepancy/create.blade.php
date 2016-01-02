@@ -8,7 +8,7 @@
         <div class="product-details"><!--product-details-->
             <div class="col-sm-7">
                 <div class="view-product">
-                    <img src="{{url('redacoes/sexto/'.$document->id_inscricao.'.jpg')}}"
+                    <img src="{{url('redacoes/imgPrimeiraSerie/imgUm/'.$document->id_inscricao.'.jpg')}}"
                              alt="" />
                 </div>
                 <div id="similar-product" class="carousel slide" data-ride="carousel">

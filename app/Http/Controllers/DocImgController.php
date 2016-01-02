@@ -27,7 +27,6 @@ class DocImgController extends Controller
 
       $dados = $this->docImgService->doclist();
 
-        shuffle($dados);
         foreach ($dados as $value) {
             if(!empty($value)):
                 echo $value;
@@ -37,5 +36,4 @@ class DocImgController extends Controller
 
 
     }
-
 }

@@ -72,7 +72,10 @@ class DiscrepancyController extends Controller
 
     public function refresh()
     {
-        $documents = $this->documentRepository->findByField('upload', 1)->all();
+
+
+        $documents = $this->documentRepository->findWhere([['upload','>',1]])->all();
+
         foreach ($documents as $document):
             $orders = $this->orderRepository->findByField('document_id', $document->id)->all();
             if (!empty($orders)):

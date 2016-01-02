@@ -1,8 +1,8 @@
 @foreach($documents as $document)
     @if($document->package->user_id != auth()->user()->id)
-    <?php Session::put('success', 'Entre em contato com o administrador para adicionar novo pacote de provas');
+        <?php Session::put('success', 'Entre em contato com o administrador para adicionar novo pacote de provas');
         return redirect()->route('store.index'); ?>
-        @endif
+    @endif
     <div class="col-sm-4">
         <div class="product-image-wrapper">
             <div class="single-products">
@@ -11,6 +11,7 @@
                     @foreach($document->orders as $orders)
                         @if($orders->user_id == auth()->user()->id)
                             <p class="alert alert-info">Documento Corrigido</p>
+
                         @endif
                     @endforeach
                     <p>#ID {{$document->id}} :: LOTE ::{{$document->package->id}} </p>

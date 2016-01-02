@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => 'contato@acessopublico.org.br', 'name' => 'Central de Atendimento'],
 
     /*
     |--------------------------------------------------------------------------
